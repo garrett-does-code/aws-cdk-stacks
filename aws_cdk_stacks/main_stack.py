@@ -4,16 +4,12 @@ from aws_cdk import (
     # aws_sqs as sqs,
 )
 from constructs import Construct
+from .eventbridge_stack import EventBridgeStack
 
 class MainStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # The code that defines your stack goes here
-
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "AwsCdkStacksQueue",
-        #     visibility_timeout=Duration.seconds(300),
-        # )
+        # This main stack deploys nested stacks
+        self.eventbridge_stack = EventBridgeStack(self, "EventBridgeExampleStack")

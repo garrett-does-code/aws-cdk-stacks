@@ -12,8 +12,14 @@ aws-cdk-lib = "2.92.0"
 constructs = "^10.0.0"
 pytest = "6.2.5"
 python-dotenv = "^1.0.0"
+boto3 = "^1.28.31"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]

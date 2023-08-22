@@ -11,6 +11,6 @@ load_dotenv()
 # Setting deploy location. Learn more at https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 env = cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION'))
 app = cdk.App()
-MainStack(app, "AwsCdkStacksStack", env=env)
+MainStack(app, "AwsCdkExamplesStack", env=env)
 
 app.synth()
