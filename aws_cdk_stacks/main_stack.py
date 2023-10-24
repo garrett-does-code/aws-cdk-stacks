@@ -5,6 +5,7 @@ from aws_cdk import (
 )
 from constructs import Construct
 from .eventbridge_stack import EventBridgeStack
+from .api_stack import ApiStack
 
 class MainStack(Stack):
 
@@ -12,4 +13,12 @@ class MainStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # This main stack deploys nested stacks
-        self.eventbridge_stack = EventBridgeStack(self, "EventBridgeExampleStack")
+        self.eventbridge_stack = EventBridgeStack(
+            self, "EventBridgeExampleStack", 
+            description="EventBridge example nested stack"
+        )
+
+        self.api_stack = ApiStack(
+            self, "ApiGatewayExampleStack", 
+            description="API Gateway with FastApi lambda proxy and Dynamo DB table"
+        )
